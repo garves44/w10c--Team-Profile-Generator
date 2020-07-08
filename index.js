@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -205,8 +206,8 @@ function addIntern() {
         })
 };
 
-
-
-
+function buildTeam () {
+    fs.writeFileSync('./dist/team.html', renderPage(team), 'UTF-8');
+}
 
 getManager();
