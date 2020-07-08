@@ -1,34 +1,34 @@
-function pageRender(arr) {
+function pageRender(team) {
     let employees = '';
 
-    for (i = 0; i < arr.length; i++) {
-        if (arr[i].role === 'Manager') {
+    for (i = 0; i < team.length; i++) {
+        if (team[i].role ==='Manager') {
             employees += `
             <div class="card employee-card">
                 <div class="card-header">
-                    <h2 class="card-title">${arr[i].name}</h2>
-                    <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${arr[i].role}</h3>
+                    <h2 class="card-title">${team[i].name}</h2>
+                    <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${team[i].role}</h3>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${arr[i].id}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${arr[i].email}">${arr[i].email}</a></li>
-                        <li class="list-group-item">Office number: ${arr[i].officeNumber}</li>
+                        <li class="list-group-item">ID: ${team[i].id}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${team[i].email}">${team[i].email}</a></li>
+                        <li class="list-group-item">Office number: ${team[i].officeNumber}</li>
                     </ul>
                 </div>
             </div>`
-        } else if (arr[i].role === 'Engineer') {
+        } else if (team[i].role === 'Engineer') {
             employees += `
             <div class="card employee-card">
                 <div class="card-header">
-                    <h2 class="card-title">${arr[i].name}</h2>
-                    <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${arr[i].role}</h3>
+                    <h2 class="card-title">${team[i].name}</h2>
+                    <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${team[i].role}</h3>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${arr[i].id}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${arr[i].email}">${arr[i].email}</a></li>
-                        <li class="list-group-item">GitHub: <a href="https://github.com/${arr[i].github}" target="_blank" rel="noopener noreferrer">${arr[i].github}</a></li>
+                        <li class="list-group-item">ID: ${team[i].id}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${team[i].email}">${team[i].email}</a></li>
+                        <li class="list-group-item">GitHub: <a href="https://github.com/${team[i].github}" target="_blank" rel="noopener noreferrer">${team[i].github}</a></li>
                     </ul>
                 </div>
             </div>`
@@ -36,14 +36,14 @@ function pageRender(arr) {
             employees += `
             <div class="card employee-card">
                 <div class="card-header">
-                    <h2 class="card-title">${arr[i].name}</h2>
-                    <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${arr[i].role}</h3>
+                    <h2 class="card-title">${team[i].name}</h2>
+                    <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${team[i].role}</h3>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${arr[i].id}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${arr[i].email}">${arr[i].email}</a></li>
-                        <li class="list-group-item">School: ${arr[i].school}</li>
+                        <li class="list-group-item">ID: ${team[i].id}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${team[i].email}">${team[i].email}</a></li>
+                        <li class="list-group-item">School: ${team[i].school}</li>
                     </ul>
                 </div>
             </div>`

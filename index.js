@@ -12,7 +12,8 @@ const team = [];
 function getManager() {
     console.log("Build your Team!");
     inquirer
-        .prompt([{
+        .prompt([
+            {
                 type: "input",
                 name: "managersName",
                 message: "Enter the Manager's name?",
@@ -62,7 +63,7 @@ function getManager() {
                 }
             }
         ]).then(answers => {
-            const manager = new Manager(answers.managersName, answers.managersId, answers.managersEmail, answers.managersOfficeNumber);
+            const manager = new Manager(answers.managersName, answers.managersId, answers.managersEmail, answers.managersOfficeNumber, answers.manager);
             team.push(manager);
             addTeam();
         });
@@ -92,7 +93,8 @@ function addTeam() {
 
 function addEngineer() {
     inquirer
-        .prompt([{
+        .prompt([
+            {
                 type: 'input',
                 name: 'engineerName',
                 message: 'Enter the name of your Engineer!',
@@ -142,7 +144,7 @@ function addEngineer() {
                 }
             }
         ]).then(answers => {
-            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub, answers.engineer);
             team.push(engineer);
             addTeam();
         })
@@ -150,7 +152,8 @@ function addEngineer() {
 
 function addIntern() {
     inquirer
-        .prompt([{
+        .prompt([
+            {
                 type: 'input',
                 name: 'internName',
                 message: 'Enter the name of your Intern!',
@@ -200,13 +203,14 @@ function addIntern() {
                 }
             }
         ]).then(answers => {
-            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool, answers.intern);
             team.push(intern);
             addTeam();
         })
 };
 
-function buildTeam () {
+function buildTeam() {
+    console.log(team);
     fs.writeFileSync('./dist/team.html', renderPage(team), 'UTF-8');
 }
 
