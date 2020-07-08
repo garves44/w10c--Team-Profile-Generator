@@ -210,7 +210,6 @@ function addIntern() {
 };
 
 function buildTeam() {
-    console.log(team);
     fs.writeFileSync('./dist/team.html', renderPage(team), 'UTF-8');
 }
 
