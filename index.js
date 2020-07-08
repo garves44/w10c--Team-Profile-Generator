@@ -29,7 +29,7 @@ function getManager() {
                 message: "Enter the Manager's id?",
                 validate: answer => {
                     if (answer < 0) {
-                        console.log('Please enter number greater than 0!');
+                        console.log('Please enter a number greater than 0!');
                         return false;
                     }
                     return true;
@@ -109,7 +109,7 @@ function addEngineer() {
                 message: 'Enter the Engineer ID!',
                 validate: answer => {
                     if (answer < 0) {
-                        console.log('Please enter number greater than 0!');
+                        console.log('Please enter a number greater than 0!');
                         return false;
                     }
                     return true;
@@ -140,8 +140,70 @@ function addEngineer() {
                     return true;
                 }
             }
-        ])
-}
+        ]).then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            team.push(engineer);
+            addTeam();
+        })
+};
+
+function addIntern() {
+    inquirer
+        .prompt([{
+                type: 'input',
+                name: 'internName',
+                message: 'Enter the name of your Intern!',
+                validate: answer => {
+                    if (answer === "") {
+                        console.log('Please enter a name for your Intern')
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: 'number',
+                name: 'internId',
+                message: 'Enter the Intern ID!',
+                validate: answer => {
+                    if (answer < 0) {
+                        console.log('Please enter a number greater than 0!');
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message: 'Enter the Interns email?',
+                validate: answer => {
+                    let passAnswer = answer.match(/\S+@\S+\.\S+/);
+                    if (passAnswer) {
+                        return true;
+                    }
+                    console.log('Enter a valid email address!');
+                    return false;
+                }
+            },
+            {
+                type: 'input',
+                name: 'internSchool',
+                message: 'Enter the name of the school for the Intern!',
+                validate: answer => {
+                    if (answer === "") {
+                        console.log('Please enter a school for your Intern')
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        ]).then(answers => {
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            team.push(intern);
+            addTeam();
+        })
+};
 
 
 
